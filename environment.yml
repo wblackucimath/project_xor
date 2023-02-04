@@ -9,6 +9,12 @@ dependencies:
   - jupyter
   - jupyterlab
   - jupyter_contrib_nbextensions
-  - tensorflow-gpu
   - pandas
   - cudatoolkit
+  - cudnn
+  - pip
+  - pip:
+    - tensorflow
+variables:
+  LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$CONDA_PREFIX/lib/
+  

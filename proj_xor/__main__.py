@@ -8,7 +8,7 @@ def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
-    EPOCHS = 2
+    EPOCHS = 100
 
     model = ProjXORModel()
     for epoch in range(EPOCHS):
