@@ -20,6 +20,7 @@ dependencies = [
     "jupyter",
     "jupyterlab",
     "jupyter_contrib_nbextensions",
-    "tensorflow"
+    "tensorflow",
+    "pandas"
 ]
 dynamic = ["version"]
