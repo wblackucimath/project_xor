@@ -1,6 +1,6 @@
 from tensorflow.keras import utils as tf_utils
 from tensorflow import convert_to_tensor
-from importlib.resources import files
+from importlib_resources import files
 from tensorflow.data import Dataset
 from pandas import read_csv
 from numpy import uint8, float32

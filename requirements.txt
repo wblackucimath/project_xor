@@ -5,5 +5,7 @@ seaborn
 jupyter
 jupyterlab
 jupyter_contrib_nbextensions
-tensorflow
+tensorflow-gpu
 pandas
+cudatoolkit
+importlib_resources
