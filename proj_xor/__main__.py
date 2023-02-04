@@ -1,9 +1,9 @@
 import logging
 
 
-def main():
+def main(logging=logging.WARNING):
     logging.info("Entering main method.")
     logging.info("Exiting main method.")
 
 if "__name__" == "__main__":
-    main()
+    main(logging=logging.INFO)
