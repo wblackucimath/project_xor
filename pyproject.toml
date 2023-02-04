@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proj_xor"
+authors = [
+    {name = "Josiah Carberry", email = "josiah_carberry@brown.edu"},
+]
+
+readme = "README.md"
+
+requires-python = ">=3.10"
+
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "seaborn",
+    "jupyter",
+    "jupyterlab",
+    "jupyter_contrib_nbextensions",
+    "tensorflow"
+]
+dynamic = ["version"]

@@ -4,10 +4,9 @@ channels:
 dependencies:
   - numpy
   - scipy
-  - scikit-learn
   - matplotlib
+  - seaborn
   - jupyter
   - jupyterlab
-  - pandas
   - jupyter_contrib_nbextensions
   - tensorflow
