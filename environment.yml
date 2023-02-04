@@ -1,0 +1,13 @@
+name: project_xor
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - jupyter
+  - jupyterlab
+  - pandas
+  - jupyter_contrib_nbextensions
+  - tensorflow
