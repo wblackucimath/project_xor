@@ -1,6 +1,7 @@
 import tensorflow as tf
+import numpy as np
 
-from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dense, Discretization
 from tensorflow.keras import Model
 
 from tensorflow.keras.losses import BinaryCrossentropy as BinaryCrossentropyLoss
@@ -11,6 +12,8 @@ from tensorflow.keras.metrics import (
 from tensorflow.keras.optimizers.experimental import Nadam
 from tensorflow.keras.optimizers.schedules import ExponentialDecay
 
+from tensorflow.math import argmax
+from numpy import uint8
 
 class ProjXORModel(Model):
     def __init__(self):
@@ -18,7 +21,12 @@ class ProjXORModel(Model):
 
         self._layers = [
             Dense(2, activation="relu"),
-            Dense(1, activation="relu"),
+            Dense(1, activation="sigmoid"),
+            # Discretization(
+            #     bin_boundaries=[0.5],
+            #     output_mode="int",
+            #     dtype=float
+            # ),     
         ]
 
         self._loss_dtype = BinaryCrossentropyLoss
@@ -53,6 +61,7 @@ class ProjXORModel(Model):
     def train_step(self, data, labels, ret_loss=False):
         with tf.GradientTape() as tape:
             predictions = self(data, training=True)
+            print(predictions, labels)
             loss = self.loss_object(labels, predictions)
         gradients = tape.gradient(loss, self.trainable_variables)
         self._optimizer.apply_gradients(zip(gradients, self.trainable_variables))

@@ -1,14 +1,14 @@
 import logging
 from proj_xor.data import get_data
 from proj_xor.models import ProjXORModel
-import proj_xor.utils
+# import proj_xor.utils
 
 
 def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
-    EPOCHS = 100
+    EPOCHS = 1
 
     model = ProjXORModel()
     for epoch in range(EPOCHS):
