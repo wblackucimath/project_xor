@@ -12,7 +12,7 @@ def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
-    EPOCHS = 100
+    EPOCHS = 50
 
     metric_df_cols = ["epoch", "run", "val"]
     loss_df = pd.DataFrame(columns=metric_df_cols)
