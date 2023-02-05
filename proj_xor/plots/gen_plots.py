@@ -9,7 +9,7 @@ def plot_loss(loss_df, save_plt=False, show_plt=False, fname=None):
     loss_df["run"] = loss_df["run"].replace(["test"], "Test")
     loss_df["run"] = loss_df["run"].replace(["train"], "Train")
     loss_df = loss_df.set_axis(["Epoch", "Run", "Loss"], axis='columns')
-    print(loss_df)
+
     plt.figure(figsize=(16, 9))
     plot = sns.lineplot(
         data=loss_df,
@@ -34,6 +34,7 @@ def plot_accuracy(acc_df, save_plt=False, show_plt=False, fname=None):
     acc_df["run"] = acc_df["run"].replace(["test"], "Test")
     acc_df["run"] = acc_df["run"].replace(["train"], "Train")
     acc_df = acc_df.set_axis(["Epoch", "Run", "Accuracy"], axis='columns')
+
     plt.figure(figsize=(16, 9))
     plot = sns.lineplot(
         data=acc_df,
