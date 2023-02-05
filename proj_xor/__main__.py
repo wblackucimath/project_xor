@@ -26,8 +26,8 @@ def main(logging_level=logging.WARNING):
 
         tqdm.write(
             f'Epoch {epoch + 1:3.0f}\t'
-            f'Loss: {model.train_loss.result():.8f}\t'
-            f'Accuracy: {model.train_accuracy.result() * 100:.8f}\t'
+            f'Train Loss: {model.train_loss.result():.8f}\t'
+            f'Train Accuracy: {model.train_accuracy.result() * 100:.8f}\t'
             f'Test Loss: {model.test_loss.result():.8f}\t'
             f'Test Accuracy: {model.test_accuracy.result() * 100:.8f}'
         )
