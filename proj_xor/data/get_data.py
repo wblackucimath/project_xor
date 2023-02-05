@@ -11,7 +11,7 @@ _dtype = float32
 
 def train_data():
     df = read_csv(
-        files("proj_xor.data.datasets").joinpath("training_data.txt"),
+        _dataset_path.joinpath("training_data.txt"),
         sep=" ",
         names=["labels", "X1", "X2"],
         dtype={"labels": uint8, "X1": _dtype, "X2": _dtype},
@@ -39,7 +39,7 @@ def train_data():
 
 def test_data():
     df = read_csv(
-        files("proj_xor.data.datasets").joinpath("test_data.txt"),
+        _dataset_path.joinpath("test_data.txt"),
         sep=" ",
         names=["labels", "X1", "X2"],
         dtype={"labels": uint8, "X1": _dtype, "X2": _dtype},
