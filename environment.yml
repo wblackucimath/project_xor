@@ -2,6 +2,7 @@ name: project_xor
 channels:
   - conda-forge
 dependencies:
+  - python=3.10
   - numpy
   - scipy
   - matplotlib
@@ -12,6 +13,7 @@ dependencies:
   - pandas
   - cudatoolkit
   - cudnn
+  - tqdm
   - pip
   - pip:
     - tensorflow
