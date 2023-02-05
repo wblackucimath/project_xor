@@ -63,8 +63,8 @@ def main(logging_level=logging.WARNING):
     acc_df = acc_df.sort_values(["run", "epoch"], ignore_index=True)
     print(loss_df)
     print(acc_df)
-    plot_loss(loss_df, save_plt=True, show_plt=True)
-    plot_accuracy(acc_df, save_plt=True, show_plt=True)
+    plot_loss(loss_df, save_plt=True, show_plt=False)
+    plot_accuracy(acc_df, save_plt=True, show_plt=False)
     logging.info("Exiting main method.")
 
 
