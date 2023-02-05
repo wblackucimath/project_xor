@@ -363,3 +363,4 @@ cython_debug/
 */*~
 */*/*~
 .keras/
+.bash_history
