@@ -256,7 +256,8 @@ class ProjXORWrapper:
         self._is_fitted = True
 
     def predict(self, X):
-        return self._model(X)
+        if self._is_fitted:
+            return self._model(X)
 
     def get_model(self):
         return self._model
