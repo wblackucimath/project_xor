@@ -254,3 +254,9 @@ class ProjXORWrapper:
         plot_accuracy(acc_df, save_plt=save_plots, show_plt=show_plots)
 
         self._is_fitted = True
+
+    def predict(self, X):
+        return self._model(X)
+
+    def get_model(self):
+        return self._model
