@@ -39,8 +39,8 @@ class ProjXORModel(Model):
 
         if layers is None:
             self._layers = [
-                Dense(2, activation="relu"),
-                Dense(1, activation="sigmoid"),
+                Dense(4, activation="sigmoid"),
+                Dense(2, activation="sigmoid"),
                 # Discretization(
                 #     bin_boundaries=[0.5],
                 #     output_mode="int",
@@ -57,9 +57,9 @@ class ProjXORModel(Model):
 
         if optimizer_schedule is None:
             self._optimizer_schedule = ExponentialDecay(
-                0.1,
-                decay_steps=10 ** 5,
-                decay_rate=0.96,
+                2,
+                decay_steps=10 ** 2,
+                decay_rate=0.8,
                 name="exponential_decay_schedule",
             )
         else:
@@ -108,10 +108,12 @@ class ProjXORWrapper:
         test_acc_metric=None,
         layers=None,
         epochs=50,
+        batch_size=10,
     ):
         self._is_fitted = False
 
         self._epochs = epochs
+        self._batch_size = batch_size
 
         if layers is None:
             self._layers = [
@@ -222,10 +224,14 @@ class ProjXORWrapper:
             self.test_loss.reset_states()
             self.test_accuracy.reset_states()
 
-            for data, labels in self.train_ds:
+            for data, labels in self.train_ds.shuffle(self._batch_size).batch(
+                self._batch_size
+            ):
                 self.train_step(data, labels)
 
-            for data, labels in self.test_ds:
+            for data, labels in self.test_ds.shuffle(self._batch_size).batch(
+                self._batch_size
+            ):
                 self.test_step(data, labels)
 
             temp_loss_df = pd.DataFrame(
