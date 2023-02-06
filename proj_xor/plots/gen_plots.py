@@ -6,6 +6,8 @@ _plot_path = files("proj_xor.plots")
 
 
 def plot_loss(loss_df, save_plt=False, show_plt=False, fname=None):
+    if not (save_plt or show_plt):
+        return
     loss_df["run"] = loss_df["run"].replace(["test"], "Test")
     loss_df["run"] = loss_df["run"].replace(["train"], "Train")
     loss_df = loss_df.set_axis(["Epoch", "Run", "Loss"], axis='columns')
@@ -31,6 +33,8 @@ def plot_loss(loss_df, save_plt=False, show_plt=False, fname=None):
 
 
 def plot_accuracy(acc_df, save_plt=False, show_plt=False, fname=None):
+    if not (save_plt or show_plt):
+        return
     acc_df["run"] = acc_df["run"].replace(["test"], "Test")
     acc_df["run"] = acc_df["run"].replace(["train"], "Train")
     acc_df = acc_df.set_axis(["Epoch", "Run", "Accuracy"], axis='columns')

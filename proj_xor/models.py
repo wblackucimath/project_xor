@@ -15,6 +15,7 @@ from tensorflow.keras.optimizers.schedules import ExponentialDecay
 from tensorflow.math import argmax
 from numpy import uint8
 import pandas as pd
+from importlib_resources import files
 
 from tqdm import trange, tqdm
 
@@ -199,7 +200,7 @@ class ProjXORWrapper:
         los = self.test_loss(labels, predictions)
         acc = self.test_accuracy(labels, predictions)
 
-    def fit(self, save_dfs=False, save_plots=False, show_plots=False):
+    def fit(self, save_dfs=False, show_dfs=False, save_plots=False, show_plots=False):
         EPOCHS = self._epochs
 
         metric_df_cols = ["epoch", "run", "val"]
@@ -248,12 +249,14 @@ class ProjXORWrapper:
 
         loss_df = loss_df.sort_values(["run", "epoch"], ignore_index=True)
         acc_df = acc_df.sort_values(["run", "epoch"], ignore_index=True)
-        print(loss_df)
-        print(acc_df)
+        if save_dfs:
+            loss_df.to_csv(files("proj_xor.data.outputs").joinpath("loss.csv"))
+            acc_df.to_csv(files("proj_xor.data.outputs").joinpath("accuracy.csv"))
+        if show_dfs:
+            print(loss_df)
+            print(acc_df)
         plot_loss(loss_df, save_plt=save_plots, show_plt=show_plots)
         plot_accuracy(acc_df, save_plt=save_plots, show_plt=show_plots)
-
-        ## TODO: Save loss and accuracy dataframes as csv
 
         self._is_fitted = True
 

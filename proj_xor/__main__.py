@@ -13,7 +13,7 @@ def main(logging_level=logging.WARNING):
     logging.info("Entering main method.")
 
     M = ProjXORWrapper()
-    M.fit(show_plots=True)
+    M.fit(save_plots=True, save_dfs=True)
     
     logging.info("Exiting main method.")
 
