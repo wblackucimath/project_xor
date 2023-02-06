@@ -253,6 +253,8 @@ class ProjXORWrapper:
         plot_loss(loss_df, save_plt=save_plots, show_plt=show_plots)
         plot_accuracy(acc_df, save_plt=save_plots, show_plt=show_plots)
 
+        ## TODO: Save loss and accuracy dataframes as csv
+
         self._is_fitted = True
 
     def predict(self, X):
