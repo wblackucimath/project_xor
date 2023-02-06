@@ -200,7 +200,15 @@ class ProjXORWrapper:
         los = self.test_loss(labels, predictions)
         acc = self.test_accuracy(labels, predictions)
 
-    def fit(self, save_dfs=False, show_dfs=False, save_plots=False, show_plots=False):
+    def fit(
+        self,
+        save_dfs=False,
+        show_dfs=False,
+        save_plots=False,
+        show_plots=False,
+        monitor=True,
+        monitor_freq=1,
+    ):
         EPOCHS = self._epochs
 
         metric_df_cols = ["epoch", "run", "val"]
@@ -239,13 +247,15 @@ class ProjXORWrapper:
             loss_df = pd.concat([loss_df, temp_loss_df], ignore_index=True)
             acc_df = pd.concat([acc_df, temp_acc_df], ignore_index=True)
 
-            tqdm.write(
-                f"Epoch {epoch + 1:3.0f}\t"
-                f"Train Loss: {self.train_loss.result():.8f}\t"
-                f"Train Accuracy: {self.train_accuracy.result() * 100:.8f}\t"
-                f"Test Loss: {self.test_loss.result():.8f}\t"
-                f"Test Accuracy: {self.test_accuracy.result() * 100:.8f}"
-            )
+            if monitor:
+                if epoch % monitor_freq == 0:
+                    tqdm.write(
+                        f"Epoch {epoch:3.0f}\t"
+                        f"Train Loss: {self.train_loss.result():.8f}\t"
+                        f"Train Accuracy: {self.train_accuracy.result() * 100:.8f}\t"
+                        f"Test Loss: {self.test_loss.result():.8f}\t"
+                        f"Test Accuracy: {self.test_accuracy.result() * 100:.8f}"
+                    )
 
         loss_df = loss_df.sort_values(["run", "epoch"], ignore_index=True)
         acc_df = acc_df.sort_values(["run", "epoch"], ignore_index=True)
