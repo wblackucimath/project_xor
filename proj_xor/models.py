@@ -30,7 +30,7 @@ class ProjXORModel(Model):
         ]
 
         self._loss_dtype = BinaryCrossentropyLoss
-        self.loss_object = self._loss_dtype(from_logits=True)
+        self.loss_object = self._loss_dtype(from_logits=False)
 
         self._optimizer_schedule = ExponentialDecay(
             0.1,
