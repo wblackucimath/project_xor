@@ -12,7 +12,7 @@ def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
-    M = ProjXORWrapper(epochs=500)
+    M = ProjXORWrapper(epochs=50 )
     M.fit(
         save_plots=True,
         show_plots=True,

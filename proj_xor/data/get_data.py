@@ -3,7 +3,8 @@ from tensorflow import convert_to_tensor
 from importlib_resources import files
 from tensorflow.data import Dataset
 from pandas import read_csv
-from numpy import uint8, float32
+from tensorflow.dtypes import uint8, float32
+
 
 _dataset_path = files("proj_xor.data.datasets")
 _dtype = float32
@@ -14,7 +15,7 @@ def train_data():
         _dataset_path.joinpath("training_data.txt"),
         sep=" ",
         names=["labels", "X1", "X2"],
-        dtype={"labels": uint8, "X1": _dtype, "X2": _dtype},
+        dtype={"labels": int, "X1": float, "X2": float},
         skipinitialspace=1,
     )
 
@@ -42,7 +43,7 @@ def test_data():
         _dataset_path.joinpath("test_data.txt"),
         sep=" ",
         names=["labels", "X1", "X2"],
-        dtype={"labels": uint8, "X1": _dtype, "X2": _dtype},
+        dtype={"labels": int, "X1": float, "X2": float},
         skipinitialspace=1,
     )
 

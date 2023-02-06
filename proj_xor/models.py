@@ -39,8 +39,8 @@ class ProjXORModel(Model):
 
         if layers is None:
             self._layers = [
-                Dense(4, activation="sigmoid"),
-                Dense(2, activation="sigmoid"),
+                Dense(2, activation="relu"),
+                Dense(1, activation="sigmoid"),
                 # Discretization(
                 #     bin_boundaries=[0.5],
                 #     output_mode="int",
@@ -135,9 +135,9 @@ class ProjXORWrapper:
 
         if optimizer_schedule is None:
             self._optimizer_schedule = ExponentialDecay(
-                0.1,
-                decay_steps=10 ** 5,
-                decay_rate=0.96,
+                0.5,
+                decay_steps=10 ** 2,
+                decay_rate=0.93,
                 name="exponential_decay_schedule",
             )
         else:
