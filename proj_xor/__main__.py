@@ -7,12 +7,14 @@ import pandas as pd
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
+from sys import getsizeof
 
 def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
     M = ProjXORWrapper(epochs=50 )
+
     M.fit(
         save_plots=True,
         show_plots=True,

@@ -3,7 +3,7 @@ from tensorflow import convert_to_tensor
 from importlib_resources import files
 from tensorflow.data import Dataset
 from pandas import read_csv
-from tensorflow.dtypes import uint8, float32
+from tensorflow.dtypes import bool as tfbool, float32
 
 
 _dataset_path = files("proj_xor.data.datasets")
@@ -21,7 +21,7 @@ def train_data():
 
     labels = convert_to_tensor(
         df["labels"],
-        dtype=uint8,
+        dtype=tfbool,
         name="train_labels",
     )
 
@@ -49,10 +49,10 @@ def test_data():
 
     labels = convert_to_tensor(
         df["labels"],
-        dtype=uint8,
+        dtype=tfbool,
         name="test_labels",
     )
-
+    
     data = convert_to_tensor(
         df[["X1", "X2"]],
         dtype=_dtype,
