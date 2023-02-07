@@ -39,7 +39,7 @@ class ProjXORModel(Model):
 
         if layers is None:
             self._layers = [
-                Dense(2, activation="relu"),
+                Dense(2, activation="swish"),
                 Dense(1, activation="sigmoid"),
                 # Discretization(
                 #     bin_boundaries=[0.5],
