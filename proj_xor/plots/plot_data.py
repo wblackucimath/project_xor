@@ -72,7 +72,7 @@ def plot_model_performance(model, save_plt=True, show_plt=False, fname=None):
     )
 
     plt.title("Model Performance with Decision Boundary")
-    plt.legend()
+    plt.legend(loc="center right")
     plt.tight_layout()
 
     if save_plt:
