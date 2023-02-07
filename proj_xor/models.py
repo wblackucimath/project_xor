@@ -108,7 +108,7 @@ class ProjXORWrapper:
         test_acc_metric=None,
         layers=None,
         epochs=100,
-        batch_size=100,
+        batch_size=50,
     ):
         self._is_fitted = False
 
