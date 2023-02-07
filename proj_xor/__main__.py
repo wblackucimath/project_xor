@@ -9,11 +9,12 @@ import matplotlib.pyplot as plt
 
 from sys import getsizeof
 
+
 def main(logging_level=logging.WARNING):
     logging.basicConfig(level=logging_level)
     logging.info("Entering main method.")
 
-    M = ProjXORWrapper(epochs=50 )
+    M = ProjXORWrapper()
 
     M.fit(
         save_plots=True,
@@ -23,7 +24,6 @@ def main(logging_level=logging.WARNING):
         monitor_freq=5,
     )
 
-    
     plot_data.plot_model_performance(M.get_model(), show_plt=True)
 
     logging.info("Exiting main method.")

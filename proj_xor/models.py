@@ -107,8 +107,8 @@ class ProjXORWrapper:
         train_acc_metric=None,
         test_acc_metric=None,
         layers=None,
-        epochs=50,
-        batch_size=10,
+        epochs=100,
+        batch_size=100,
     ):
         self._is_fitted = False
 
@@ -117,13 +117,9 @@ class ProjXORWrapper:
 
         if layers is None:
             self._layers = [
-                Dense(2, activation="relu"),
+                Dense(2, activation="swish"),
+                # swish works much better than relu or sigmoid
                 Dense(1, activation="sigmoid"),
-                # Discretization(
-                #     bin_boundaries=[0.5],
-                #     output_mode="int",
-                #     dtype=float
-                # ),
             ]
         else:
             self._layers = layers
