@@ -1,5 +1,6 @@
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.ticker import PercentFormatter
 from importlib_resources import files
 import tensorflow as tf
 import pandas as pd
@@ -30,8 +31,8 @@ def plot_model_performance(model, save_plt=True, show_plt=False, fname=None):
 
     xlim = (-1, 2)
     ylim = (-1, 2)
-    N_h_gridpoints = 10 * (xlim[1] - xlim[0])
-    N_v_gridpoints = 10 * (ylim[1] - ylim[0])
+    N_h_gridpoints = 100 * (xlim[1] - xlim[0])
+    N_v_gridpoints = 100 * (ylim[1] - ylim[0])
 
     hmesh = np.linspace(*xlim, num=N_h_gridpoints)
     vmesh = np.linspace(*ylim, num=N_v_gridpoints)
@@ -52,9 +53,15 @@ def plot_model_performance(model, save_plt=True, show_plt=False, fname=None):
         gridpred,
         cmap="RdBu",
     )
-    plt.colorbar(cf)
+    plt.colorbar(
+        cf,
+        label="Probability of Cagegory 1",
+        spacing="proportional",
+        # boundaries=[0, 1],
+        format=PercentFormatter(xmax=1),
+    )
 
-    c = plt.contour(
+    plt.contour(
         xgrid,
         ygrid,
         gridpred,
