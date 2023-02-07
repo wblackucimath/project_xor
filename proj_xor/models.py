@@ -107,7 +107,7 @@ class ProjXORWrapper:
         train_acc_metric=None,
         test_acc_metric=None,
         layers=None,
-        epochs=100,
+        epochs=60,
         batch_size=50,
     ):
         self._is_fitted = False
@@ -133,7 +133,7 @@ class ProjXORWrapper:
             self._optimizer_schedule = ExponentialDecay(
                 0.5,
                 decay_steps=10 ** 2,
-                decay_rate=0.93,
+                decay_rate=0.9,
                 name="exponential_decay_schedule",
             )
         else:
