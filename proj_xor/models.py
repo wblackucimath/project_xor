@@ -186,7 +186,6 @@ class ProjXORWrapper:
     def train_step(self, data, labels):
         with tf.GradientTape() as tape:
             predictions = self._model(data, training=True)
-            print(predictions, labels)
             loss = self.loss_object(labels, predictions)
         gradients = tape.gradient(loss, self._model.trainable_variables)
         self._optimizer.apply_gradients(zip(gradients, self._model.trainable_variables))
