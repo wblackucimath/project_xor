@@ -1,7 +1,5 @@
 import logging
-from proj_xor.data import get_data
 from proj_xor.models import ProjXORWrapper
-from proj_xor.plots.gen_plots import plot_loss, plot_accuracy
 
 import pandas as pd
 import tensorflow as tf
@@ -17,9 +15,9 @@ def main(logging_level=logging.WARNING):
 
     M.fit(
         save_plots=True,
-        show_plots=True,
+        show_plots=False,
         save_dfs=True,
-        show_dfs=True,
+        show_dfs=False,
         monitor_freq=5,
     )
 

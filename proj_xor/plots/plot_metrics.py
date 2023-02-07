@@ -2,7 +2,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from importlib_resources import files
 
-_plot_path = files("proj_xor.plots")
+_plot_path = files("proj_xor.plots.metrics")
 
 
 def plot_loss(loss_df, save_plt=False, show_plt=False, fname=None):
