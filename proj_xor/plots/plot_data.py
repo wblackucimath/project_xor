@@ -57,7 +57,6 @@ def plot_model_performance(model, save_plt=True, show_plt=False, fname=None):
         cf,
         label="Probability of Category 1",
         spacing="proportional",
-        # boundaries=[0, 1],
         format=PercentFormatter(xmax=1),
     )
 
