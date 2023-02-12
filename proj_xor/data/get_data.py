@@ -9,6 +9,7 @@ from tensorflow.dtypes import bool as tfbool, float32
 _dataset_path = files("proj_xor.data.datasets")
 _dtype = float32
 
+
 def train_data():
     df = read_csv(
         _dataset_path.joinpath("training_data.txt"),
@@ -51,7 +52,7 @@ def test_data():
         dtype=tfbool,
         name="test_labels",
     )
-    
+
     data = convert_to_tensor(
         df[["X1", "X2"]],
         dtype=_dtype,
