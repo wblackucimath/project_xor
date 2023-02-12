@@ -1,11 +1,1 @@
-numpy
-scipy
-matplotlib
-seaborn
-jupyter
-jupyterlab
-jupyter_contrib_nbextensions
-tensorflow-gpu
-pandas
-cudatoolkit
-importlib_resources
+tensorflow

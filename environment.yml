@@ -14,4 +14,4 @@ dependencies:
   - tqdm
   - pip
   - pip:
-    - tensorflow
+    - -r requirements.txt
