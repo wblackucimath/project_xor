@@ -1,0 +1,19 @@
+name: proj_xor_gpu
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - seaborn
+  - jupyter
+  - jupyterlab
+  - jupyter_contrib_nbextensions
+  - pandas
+  - tqdm
+  - cudatoolkit
+  - cudnn
+  - pip
+  - pip:
+    - -r requirements.txt

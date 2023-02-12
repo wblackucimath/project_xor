@@ -1,4 +1,4 @@
-name: project_xor
+name: project_xor_cpu
 channels:
   - conda-forge
 dependencies:
