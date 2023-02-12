@@ -110,6 +110,7 @@ class ProjXORWrapper:
         epochs=60,
         batch_size=50,
     ):
+        ## I know this function has a lot of repeated code, but fixing it is not a priority
         self._is_fitted = False
 
         self._epochs = epochs
