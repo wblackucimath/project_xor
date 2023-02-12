@@ -4,9 +4,6 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "proj_xor"
-authors = [
-    {name = "Josiah Carberry", email = "josiah_carberry@brown.edu"},
-]
 
 readme = "README.md"
 
@@ -20,8 +17,7 @@ dependencies = [
     "jupyter",
     "jupyterlab",
     "jupyter_contrib_nbextensions",
-    "tensorflow-gpu",
+    "tensorflow",
     "pandas",
-    "cudatoolkit",
 ]
 dynamic = ["version"]
