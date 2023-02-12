@@ -17,7 +17,7 @@ from numpy import uint8
 import pandas as pd
 from importlib_resources import files
 
-from tqdm import trange, tqdm
+from tqdm.auto import trange, tqdm
 
 from proj_xor.data import get_data
 from proj_xor.plots.plot_metrics import plot_loss, plot_accuracy

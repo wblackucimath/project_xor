@@ -1,4 +1,5 @@
 import seaborn as sns
+from matplotlib.ticker import PercentFormatter
 import matplotlib.pyplot as plt
 from importlib_resources import files
 
@@ -47,7 +48,7 @@ def plot_accuracy(acc_df, save_plt=True, show_plt=False, fname=None):
         y="Accuracy",
         hue="Run",
     )
-
+    plt.gca().yaxis.set_major_formatter(PercentFormatter(1))
     plt.title("Training and Test Accuracy vs. Epoch")
     plt.grid()
     plt.tight_layout()
