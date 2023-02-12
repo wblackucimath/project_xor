@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-from tensorflow.keras.layers import Dense, Discretization
+from tensorflow.keras.layers import Dense
 from tensorflow.keras import Model
 
 from tensorflow.keras.losses import BinaryCrossentropy as BinaryCrossentropyLoss
@@ -12,8 +12,6 @@ from tensorflow.keras.metrics import (
 from tensorflow.keras.optimizers.experimental import Nadam
 from tensorflow.keras.optimizers.schedules import ExponentialDecay
 
-from tensorflow.math import argmax
-from numpy import uint8
 import pandas as pd
 from importlib_resources import files
 
@@ -41,11 +39,6 @@ class ProjXORModel(Model):
             self._layers = [
                 Dense(2, activation="swish"),
                 Dense(1, activation="sigmoid"),
-                # Discretization(
-                #     bin_boundaries=[0.5],
-                #     output_mode="int",
-                #     dtype=float
-                # ),
             ]
         else:
             self._layers = layers
@@ -262,8 +255,14 @@ class ProjXORWrapper:
         loss_df = loss_df.sort_values(["run", "epoch"], ignore_index=True)
         acc_df = acc_df.sort_values(["run", "epoch"], ignore_index=True)
         if save_dfs:
-            loss_df.to_csv(files("proj_xor.data.outputs").joinpath("loss.csv"))
-            acc_df.to_csv(files("proj_xor.data.outputs").joinpath("accuracy.csv"))
+            loss_df.to_csv(
+                files("proj_xor.data.outputs").joinpath("loss.csv"),
+                index=False,
+            )
+            acc_df.to_csv(
+                files("proj_xor.data.outputs").joinpath("accuracy.csv"),
+                index=False,
+            )
         if show_dfs:
             print(loss_df)
             print(acc_df)

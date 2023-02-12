@@ -21,13 +21,13 @@ def plot_loss(loss_df, save_plt=True, show_plt=False, fname=None):
         hue="Run",
     )
 
-    plt.title("Training and Test Loss vs. Epoch")
+    plt.title("Training and Test Loss vs. Epoch") 
     plt.grid()
     plt.tight_layout()
 
     if save_plt:
         if fname is None:
-            fname = "loss_plot.png"
+            fname = "loss.png"
         plt.savefig(_plot_path.joinpath(fname))
     if show_plt:
         plt.show()
@@ -55,7 +55,7 @@ def plot_accuracy(acc_df, save_plt=True, show_plt=False, fname=None):
 
     if save_plt:
         if fname is None:
-            fname = "accuracy_plot.png"
+            fname = "accuracy.png"
         plt.savefig(_plot_path.joinpath(fname))
     if show_plt:
         plt.show()
