@@ -8,7 +8,6 @@ from tensorflow.dtypes import bool as tfbool, float32
 
 _dataset_path = files("proj_xor.data.datasets")
 _dtype = float32
-# _int_dtype = 
 
 def train_data():
     df = read_csv(
